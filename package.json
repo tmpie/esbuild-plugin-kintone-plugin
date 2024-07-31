@@ -20,7 +20,8 @@
     "url": "git+https://github.com/tmpie/esbuild-plugin-kintone-plugin.git"
   },
   "scripts": {
-    "build": "tsc"
+    "build": "tsc",
+    "prepack": "npm run build"
   },
   "dependencies": {
     "@kintone/plugin-packer": "^8.1.3"
