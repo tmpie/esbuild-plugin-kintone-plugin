@@ -21,6 +21,7 @@
   },
   "scripts": {
     "build": "tsc",
+    "format": "npx prettier src/**/*.ts --write",
     "prepack": "npm run build"
   },
   "dependencies": {
