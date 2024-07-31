@@ -1,5 +1,6 @@
 import crypto from 'node:crypto';
 import fs from 'node:fs';
+import path from 'node:path';
 
 import type { Plugin } from 'esbuild';
 import { packPluginFromManifest } from '@kintone/plugin-packer/dist/pack-plugin-from-manifest.js';
@@ -27,11 +28,15 @@ export function kintonePlugin(opts?: Partial<Option>): Plugin {
   const privateKey = fs.readFileSync(privateKeyPath, 'utf-8');
 
   return {
-    name: 'kintonePlugin',
+    name: 'kintone-plugin',
     setup(build) {
       build.onEnd(async (result) => {
         const { id, plugin: buffer } = await packPluginFromManifest(manifestJSONPath, privateKey);
         const zipPath = typeof pluginZipPath === 'function' ? pluginZipPath(id, JSON.parse(fs.readFileSync(manifestJSONPath, 'utf-8'))) : pluginZipPath;
+        const zipDir = path.dirname(zipPath);
+        if (!fs.existsSync(zipDir)) {
+          fs.mkdirSync(zipDir, { recursive: true });
+        }
         fs.writeFileSync(zipPath, buffer);
         console.log('----------------------');
         console.log('Success to create a plugin zip!');
