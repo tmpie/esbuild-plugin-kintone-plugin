@@ -22,6 +22,7 @@
   "scripts": {
     "build": "tsc",
     "format": "npx prettier src/**/*.ts --write",
+    "test": "node src/__tests__/build.cjs",
     "prepublishOnly": "npm run build"
   },
   "dependencies": {
