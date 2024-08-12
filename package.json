@@ -1,6 +1,6 @@
 {
   "name": "esbuild-plugin-kintone-plugin",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "A esbuild plugin to create a plugin zip of Kintone.",
   "keywords": [
     "esbuild",
@@ -22,15 +22,19 @@
   "scripts": {
     "build": "tsc",
     "format": "npx prettier src/**/*.ts --write",
-    "prepack": "npm run build"
+    "prepublishOnly": "npm run build"
   },
   "dependencies": {
-    "@kintone/plugin-packer": "^8.1.3"
+    "@kintone/plugin-packer": "^8.1.3",
+    "prompts": "^2.4.2"
   },
   "devDependencies": {
     "@tsconfig/node18": "^18.2.4",
-    "@types/node": "^18.19.42",
+    "@types/node": "^18.19.44",
+    "@types/prompts": "^2.4.9",
     "esbuild": "^0.23.0",
+    "esbuild-plugin-kintone-plugin": "file:",
+    "prettier": "^3.3.3",
     "typescript": "^5.5.4"
   },
   "engines": {
