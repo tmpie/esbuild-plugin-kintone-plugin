@@ -1,5 +1,9 @@
 # esbuild-plugin-kintone-plugin
 
+![NPM Version](https://img.shields.io/npm/v/esbuild-plugin-kintone-plugin)
+![Node Current](https://img.shields.io/node/v/esbuild-plugin-kintone-plugin)
+![NPM License](https://img.shields.io/npm/l/esbuild-plugin-kintone-plugin)
+
 Kintoneプラグインを生成するためのesbuildプラグインです。
 
 ## インストール
